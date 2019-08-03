@@ -35,6 +35,7 @@ switch (command) {
     case "do-what-it-says":
         doThis(input);
         break;
+    // This is a default case if there is no command and just running the liri.js
     default:
         // Using fs to read random.txt
         fs.readFile("random.txt", "utf8", function (error, data) {
@@ -48,5 +49,19 @@ switch (command) {
             // Calling the function of spotifyCall
             spotifyCall(thatWay);
         });
+}
+
+function concertThis(input) {
+    axios.get("https://rest.bandsintown.com/artists/" + input + "/events?app_id=codingbootcamp")
+    .then(function(response) {    
+            var concertInfo = 
+                    "\nVenue Name: " + response.data[i].venue.name + 
+                    "\nVenue Location: " + response.data[i].venue.city +
+                    "\nDate of the Event: " + response.data[0].datatime;
+            console.log(concertInfo);
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
 }
 
