@@ -51,26 +51,12 @@ switch (command) {
         });
 }
 
-// // Concert function
-// function concertThis(input) {
-//     // Getting api response from bandsintown with boot camp api
-//     axios.get("https://rest.bandsintown.com/artists/" + input + "/events?app_id=codingbootcamp").then(function (response) {
-//         var concertInfo =
-//         "Artist: " + artist + "\nVenue: " + response.data[0].venue.name + "\nLocation: " + response.data[0].venue.country + "\nDate: " + response.data[0].datatime + "\nRock on dude!"
-//         console.log(concertInfo);
-//     })
-//         // catching for errors
-//         .catch(function (error) {
-//             console.log(error);
-//         });
-// }
-
 function concertThis(input) {
     // // This line is just to help us debug against the actual URL.
     // Creating a request with axios to the queryUrl
     axios.get("https://rest.bandsintown.com/artists/" + input + "/events?app_id=codingbootcamp").then(function (response) {
             console.log("_Upcoming Events_");
-            console.log("Artist: " + input + "\nVenue: " + response.data[0].venue.name + "\nLocation: " + response.data[0].venue.country + "\nDate: " + response.data[0].datatime + "\nRock on dude!");
+            console.log("Artist: " + input + "\nVenue: " + response.data[0].venue.name + "\nLocation: " + response.data[0].venue.country + "\nDate: " + response.data[0].datatime);
         }).catch(function(err){
             console.log(err);
         });
@@ -109,7 +95,7 @@ function movieThis(input) {
             if (!input) {
                 input = "Mr. Nobody";
             }
-            console.log("\n_Movie Info_" + "\nTitle: " + response.data.Title + "\nRelease Year: " + response.data.Year + "\nRating: " + response.data.Rated + "\nRelease Country: " + response.data.Country + "\nLanguage: " + response.data.Language + "\nPlot: " + response.data.Plot + "\nActors: " + response.data.Actors + "\n" + "\n Love this one!")
+            console.log("\n_Movie Info_" + "\nTitle: " + response.data.Title + "\nRelease Year: " + response.data.Year + "\nRating: " + response.data.Rated + "\nRelease Country: " + response.data.Country + "\nLanguage: " + response.data.Language + "\nPlot: " + response.data.Plot + "\nActors: " + response.data.Actors)
         }
     );
 }
